@@ -10,4 +10,8 @@ tree = app_commands.CommandTree(bot)
 async def ping(interaction: discord.Interaction):
     await interaction.response.send_message('pong')
     
+@bot.event
+async def on_ready():
+    await tree.sync()
+    
 bot.run(DISCORD_BOT_TOKEN)
